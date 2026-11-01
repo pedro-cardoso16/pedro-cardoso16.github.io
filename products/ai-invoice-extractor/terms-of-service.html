@@ -27,11 +27,19 @@
     <p>The Developer provides software tooling. You, the user or deploying organization, retain sole ownership and operational control over the environments in which the software executes, the documents fed into the pipeline, and the configuration choices made.</p>
     <ul>
       <li><strong>You are the Data Controller:</strong> You are solely responsible for determining whether the documents you process contain sensitive, confidential, proprietary, or legally regulated data (such as personally identifiable information, protected health information, or trade secrets).</li>
-      <li><strong>Architectural Choice:</strong> You are responsible for configuring appropriate inference engines based on your organizational compliance obligations (for instance, electing to use private, local offline execution rather than external cloud APIs when handling strict non-disclosure obligations).</li>
+      <li><strong>Inference Choice:</strong> You are responsible for configuring appropriate inference engines based on your organizational compliance obligations (for instance, electing to use private, local offline execution rather than external cloud APIs when handling strict non-disclosure obligations).</li>
       <li><strong>Backups:</strong> You maintain sole responsibility for preserving backups of all source invoices, files, and target Google Spreadsheets.</li>
     </ul>
 
-    <h2>3. AI Hallucination Risks &amp; Mandatory Human-in-the-Loop Verification</h2>
+    <h2>3. Modular Architecture &amp; Assembly Responsibility</h2>
+    <p>The Application is designed as a suite of modular, composable software building blocks (including standalone API endpoints for document parsing, image quality scoring, entity extraction, and safety provenance gating, as well as visual orchestration nodes).</p>
+    <ul>
+      <li><strong>Construction Materials Analogy:</strong> The Developer supplies functional software components ("construction materials"). However, you, the user, developer, or system integrator, are solely responsible for how you assemble, architect, chain, configure, and execute these components into an operational pipeline.</li>
+      <li><strong>Pipeline Integrity:</strong> If you assemble custom workflows, alter recommended node sequences, bypass quality verification or provenance gates, or connect these endpoints into third-party automation tools, you bear absolute responsibility for the structural integrity, error handling, rate limiting, and business logic of the resulting workflow.</li>
+      <li><strong>Misconfiguration Disclaimer:</strong> The Developer explicitly disclaims liability for any cascading failures, runaway retry loops, unauthorized data routing, excessive third-party API token expenses, or corrupted spreadsheet entries caused by improper pipeline design, flawed conditional branches, or misconfigured parameters by the user.</li>
+    </ul>
+
+    <h2>4. AI Hallucination Risks &amp; Mandatory Human-in-the-Loop Verification</h2>
     <p><strong>CRITICAL NOTICE:</strong> The Application relies on probabilistic machine learning and Large Language Models (LLMs). By nature, generative and multimodal AI systems can and will periodically produce incomplete, inaccurate, or fabricated data ("hallucinations").</p>
     <ul>
       <li><strong>No Financial, Tax, or Legal Advice:</strong> The Application is strictly a technical data-extraction utility and does <strong>not</strong> provide certified accounting, bookkeeping, auditing, tax, or legal counsel.</li>
@@ -39,7 +47,7 @@
       <li><strong>Zero Liability for Decisions:</strong> The Developer explicitly disclaims any liability for financial damages, payment errors, overpayments, duplicate payments, bank discrepancies, regulatory penalties, or late fees resulting from your reliance on unverified extracted outputs.</li>
     </ul>
 
-    <h2>4. Supported AI Engines &amp; Third-Party Services</h2>
+    <h2>5. Supported AI Engines &amp; Third-Party Services</h2>
     <p>The Application allows you to route inference through multiple user-selected backends:</p>
     <ul>
       <li><strong>Cloud AI Model Providers (e.g., OpenAI, Anthropic Claude, Google Cloud Gemini):</strong> If you configure external cloud APIs, document text, coordinates, and image excerpts are transmitted across the internet via encrypted HTTPS to those providers. Once received by an external provider, data processing, retention, and security are governed exclusively by that third party's enterprise agreements and policies. The Developer does not control, supervise, or assume liability for third-party cloud data practices.</li>
@@ -48,7 +56,7 @@
       <li><strong>Google Workspace APIs:</strong> Your interaction with Google Drive and Google Sheets is subject to Google's Terms of Service and API policies. The Developer is not responsible for Google outages, latency, quota depletion, or changes to API availability.</li>
     </ul>
 
-    <h2>5. Acceptable Use and Warranties by the User</h2>
+    <h2>6. Acceptable Use and Warranties by the User</h2>
     <p>You represent and warrant that:</p>
     <ul>
       <li>You possess all necessary rights, legal authority, and permissions to access, process, and extract data from the files placed in your Google Drive folders.</li>
@@ -56,19 +64,19 @@
       <li>You will safeguard your local server environment, Docker volumes, API keys, OAuth client credentials, and authentication tokens against unauthorized access.</li>
     </ul>
 
-    <h2>6. Disclaimer of Warranties ("AS IS")</h2>
+    <h2>7. Disclaimer of Warranties ("AS IS")</h2>
     <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE APPLICATION IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, WHETHER EXPRESS, IMPLIED, OR STATUTORY, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, ACCURACY, AND NON-INFRINGEMENT. THE DEVELOPER DOES NOT WARRANT THAT THE SERVICE WILL OPERATE UNINTERRUPTED, COMPLETELY BUG-FREE, OR ERROR-FREE, OR THAT IT WILL SATISFY ANY SPECIFIC REGULATORY OR ACCOUNTING STANDARD.</p>
 
-    <h2>7. Limitation of Liability</h2>
-    <p>TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL PEDRO HENRIQUE PEREIRA CARDOSO BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF REVENUE, PROFITS, BUSINESS GOODWILL, DATA CORRUPTION, SERVICE INTERRUPTION, AUDIT PENALTIES, TAX FINES, OR FINANCIAL LOSSES OF ANY KIND ARISING OUT OF OR IN CONNECTION WITH (A) YOUR USE OF OR INABILITY TO USE THE APPLICATION; (B) ANY INACCURACY, HALLUCINATION, OR OMISSION IN THE EXTRACTED DATA; OR (C) ACTIONS, POLICIES, OR BREACHES ATTRIBUTABLE TO THIRD-PARTY PLATFORMS (INCLUDING GOOGLE, OPENAI, ANTHROPIC, OR HOSTING PROVIDERS).</p>
+    <h2>8. Limitation of Liability</h2>
+    <p>TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL PEDRO HENRIQUE PEREIRA CARDOSO BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF REVENUE, PROFITS, BUSINESS GOODWILL, DATA CORRUPTION, SERVICE INTERRUPTION, AUDIT PENALTIES, TAX FINES, OR FINANCIAL LOSSES OF ANY KIND ARISING OUT OF OR IN CONNECTION WITH (A) YOUR USE OF OR INABILITY TO USE THE APPLICATION; (B) ANY INACCURACY, HALLUCINATION, OR OMISSION IN THE EXTRACTED DATA; (C) IMPROPER INTEGRATION, ASSEMBLY, OR CONFIGURATION OF MODULAR APPLICATION ENDPOINTS; OR (D) ACTIONS, POLICIES, OR BREACHES ATTRIBUTABLE TO THIRD-PARTY PLATFORMS (INCLUDING GOOGLE, OPENAI, ANTHROPIC, OR HOSTING PROVIDERS).</p>
 
-    <h2>8. Access Revocation &amp; Termination</h2>
+    <h2>9. Access Revocation &amp; Termination</h2>
     <p>You may stop using the Application at any time by stopping your containers and revoking OAuth access via your <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Google Account Permissions</a> console. The Developer reserves the right to cease active maintenance, updates, or distribution of the software at any time without prior notice.</p>
 
-    <h2>9. Modifications to These Terms</h2>
+    <h2>10. Modifications to These Terms</h2>
     <p>We may amend these Terms periodically. The current version will always remain accessible at this URL with an updated "Last updated" date. Continued use of the Application after revisions constitutes acceptance of the modified Terms.</p>
 
-    <h2>10. Contact Information</h2>
+    <h2>11. Contact Information</h2>
     <p>For questions, notices, or inquiries concerning these Terms of Service, contact:</p>
     <p>
       <strong>Pedro Henrique Pereira Cardoso</strong><br>
