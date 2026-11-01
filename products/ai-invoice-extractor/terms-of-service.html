@@ -1,13 +1,78 @@
 <!DOCTYPE html>
-
 <html lang="en-US">
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Pedro Henrique Pereira Cardoso">
-    <title>Terms of service</title>
+    <title>Terms of Service - AI Invoice Extractor</title>
   </head>
   <body>
-    <h1>Terms of service</h1>
+    <h1>Terms of Service</h1>
+    <p>Last updated: November 2026</p>
+
+    <p>Please read these Terms of Service ("Terms") carefully before using <strong>AI Invoice Extractor</strong> ("the Application", "the Service"), created and maintained by <strong>Pedro Henrique Pereira Cardoso</strong> ("the Developer", "we", "us").</p>
+
+    <p>By installing, executing, or connecting your Google Workspace account to the Application, you agree to be bound by these Terms. If you disagree with any part of these Terms, you may not use the Application.</p>
+
+    <h2>1. Description of Service</h2>
+    <p>AI Invoice Extractor is an autonomous, self-hosted or user-managed workflow productivity tool designed to:</p>
+    <ul>
+      <li>Access user-designated Google Drive folders to detect and download invoice documents (PDFs, images).</li>
+      <li>Parse document text, metadata, and embedded images.</li>
+      <li>Perform automated entity and field extraction via user-configured artificial intelligence (AI) models.</li>
+      <li>Append structured summaries (such as vendor names, invoice numbers, dates, currency, and line totals) to user-designated Google Sheets.</li>
+    </ul>
+
+    <h2>2. Tool Provider Model &amp; Shared Responsibility</h2>
+    <p>The Developer provides software tooling. You, the user or deploying organization, retain sole ownership and operational control over the environments in which the software executes, the documents fed into the pipeline, and the configuration choices made.</p>
+    <ul>
+      <li><strong>You are the Data Controller:</strong> You are solely responsible for determining whether the documents you process contain sensitive, confidential, proprietary, or legally regulated data (such as personally identifiable information, protected health information, or trade secrets).</li>
+      <li><strong>Architectural Choice:</strong> You are responsible for configuring appropriate inference engines based on your organizational compliance obligations (for instance, electing to use private, local offline execution rather than external cloud APIs when handling strict non-disclosure obligations).</li>
+      <li><strong>Backups:</strong> You maintain sole responsibility for preserving backups of all source invoices, files, and target Google Spreadsheets.</li>
+    </ul>
+
+    <h2>3. AI Hallucination Risks &amp; Mandatory Human-in-the-Loop Verification</h2>
+    <p><strong>CRITICAL NOTICE:</strong> The Application relies on probabilistic machine learning and Large Language Models (LLMs). By nature, generative and multimodal AI systems can and will periodically produce incomplete, inaccurate, or fabricated data ("hallucinations").</p>
+    <ul>
+      <li><strong>No Financial, Tax, or Legal Advice:</strong> The Application is strictly a technical data-extraction utility and does <strong>not</strong> provide certified accounting, bookkeeping, auditing, tax, or legal counsel.</li>
+      <li><strong>Mandatory Human Review:</strong> You are strictly required to maintain human oversight ("human-in-the-loop"). You must independently inspect and reconcile all extracted invoice values (including totals, tax figures, currency codes, bank details, and payment due dates) against the original source documents before scheduling disbursements, initiating wire transfers, signing ledger accounts, or submitting tax declarations.</li>
+      <li><strong>Zero Liability for Decisions:</strong> The Developer explicitly disclaims any liability for financial damages, payment errors, overpayments, duplicate payments, bank discrepancies, regulatory penalties, or late fees resulting from your reliance on unverified extracted outputs.</li>
+    </ul>
+
+    <h2>4. Supported AI Engines &amp; Third-Party Services</h2>
+    <p>The Application allows you to route inference through multiple user-selected backends:</p>
+    <ul>
+      <li><strong>Cloud AI Model Providers (e.g., OpenAI, Anthropic Claude, Google Cloud Gemini):</strong> If you configure external cloud APIs, document text, coordinates, and image excerpts are transmitted across the internet via encrypted HTTPS to those providers. Once received by an external provider, data processing, retention, and security are governed exclusively by that third party's enterprise agreements and policies. The Developer does not control, supervise, or assume liability for third-party cloud data practices.</li>
+      <li><strong>Local / On-Premise Runtimes (e.g., Ollama, Local Models):</strong> If you configure the Application to run against local models (such as an Ollama instance), inference is completed entirely within your local computing environment without transmitting document data across the internet to commercial AI vendors.</li>
+      <li><strong>Bring Your Own Credentials (BYOC):</strong> You are solely responsible for obtaining valid API keys, complying with your providers' acceptable use policies, and paying all direct token, compute, or usage charges incurred on your provider accounts.</li>
+      <li><strong>Google Workspace APIs:</strong> Your interaction with Google Drive and Google Sheets is subject to Google's Terms of Service and API policies. The Developer is not responsible for Google outages, latency, quota depletion, or changes to API availability.</li>
+    </ul>
+
+    <h2>5. Acceptable Use and Warranties by the User</h2>
+    <p>You represent and warrant that:</p>
+    <ul>
+      <li>You possess all necessary rights, legal authority, and permissions to access, process, and extract data from the files placed in your Google Drive folders.</li>
+      <li>You will not use the Application to parse, store, or distribute fraudulent, infringing, defamatory, or unlawful materials.</li>
+      <li>You will safeguard your local server environment, Docker volumes, API keys, OAuth client credentials, and authentication tokens against unauthorized access.</li>
+    </ul>
+
+    <h2>6. Disclaimer of Warranties ("AS IS")</h2>
+    <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE APPLICATION IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, WHETHER EXPRESS, IMPLIED, OR STATUTORY, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, ACCURACY, AND NON-INFRINGEMENT. THE DEVELOPER DOES NOT WARRANT THAT THE SERVICE WILL OPERATE UNINTERRUPTED, COMPLETELY BUG-FREE, OR ERROR-FREE, OR THAT IT WILL SATISFY ANY SPECIFIC REGULATORY OR ACCOUNTING STANDARD.</p>
+
+    <h2>7. Limitation of Liability</h2>
+    <p>TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL PEDRO HENRIQUE PEREIRA CARDOSO BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF REVENUE, PROFITS, BUSINESS GOODWILL, DATA CORRUPTION, SERVICE INTERRUPTION, AUDIT PENALTIES, TAX FINES, OR FINANCIAL LOSSES OF ANY KIND ARISING OUT OF OR IN CONNECTION WITH (A) YOUR USE OF OR INABILITY TO USE THE APPLICATION; (B) ANY INACCURACY, HALLUCINATION, OR OMISSION IN THE EXTRACTED DATA; OR (C) ACTIONS, POLICIES, OR BREACHES ATTRIBUTABLE TO THIRD-PARTY PLATFORMS (INCLUDING GOOGLE, OPENAI, ANTHROPIC, OR HOSTING PROVIDERS).</p>
+
+    <h2>8. Access Revocation &amp; Termination</h2>
+    <p>You may stop using the Application at any time by stopping your containers and revoking OAuth access via your <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Google Account Permissions</a> console. The Developer reserves the right to cease active maintenance, updates, or distribution of the software at any time without prior notice.</p>
+
+    <h2>9. Modifications to These Terms</h2>
+    <p>We may amend these Terms periodically. The current version will always remain accessible at this URL with an updated "Last updated" date. Continued use of the Application after revisions constitutes acceptance of the modified Terms.</p>
+
+    <h2>10. Contact Information</h2>
+    <p>For questions, notices, or inquiries concerning these Terms of Service, contact:</p>
+    <p>
+      <strong>Pedro Henrique Pereira Cardoso</strong><br>
+      Email: <a href="mailto:your-email@example.com">your-email@example.com</a>
+    </p>
   </body>
 </html>
-
